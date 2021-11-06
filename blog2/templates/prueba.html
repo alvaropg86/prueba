@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href='{{ url_for("static", filename="base.css") }}'>
+</head>
+<body>
+    <form action="" method="post" novalidate>
+        {{ form.csrf_token }}
+        {{ form.opts }}
+
+        <ul>
+            {% for error in form.opts.errors %}
+            <li style="color: red;">{{ error }}</li>
+        
+            {% endfor %}
+        </ul>
+ 
+    </form>
+
+</body>
+</html>

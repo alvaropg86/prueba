@@ -1,0 +1,47 @@
+pagina vacia para probar
+
+<!-- CARGAMOS CONTENIDO EN EL BLOQUE DE TITULO -->
+{% block title %}{% endblock %}
+<!-- CARGAMOS CONTENIDO EN EL BLOQUE DE CONTENIDOS -->
+<!-- {% block content %} -->
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.apellido.label }}
+            {{ form.apellido(size=64) }}<br>
+            <!-- LE MOSTRAMOS AL USUARIO EL ERROR DE VALIDACIÓN -->
+            {% for error in form.apellido.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.nombre.label }}
+            {{ form.nombre }}<br>
+            <!-- LE MOSTRAMOS AL USUARIO EL ERROR DE VALIDACIÓN -->
+            {% for error in form.nombre.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="input-field col s12">
+            {{ form.sexo.label }}
+            <select>
+                
+                {% for lista_sexo in lista_sexo %}
+                <option value="1">{{ form.sexo}}</option>
+                {% endfor %}
+              </select>
+            <!-- LE MOSTRAMOS AL USUARIO EL ERROR DE VALIDACIÓN -->
+            {% for error in form.sexo.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+<!-- {% endblock %} -->
+
